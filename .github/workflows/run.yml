@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       password:
-        description: Username for ngronk^
+        description: Password for ngronk
         type: string
         required: true
 
