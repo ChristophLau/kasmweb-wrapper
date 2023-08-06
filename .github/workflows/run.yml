@@ -25,11 +25,12 @@ jobs:
         env:
           NGROK: ${{ secrets.NGROK }}
         run: |
+          echo ${#NGROK}
           docker build -t kasm_ngrok .
           
       - name: docker run
         env:
-          NGROK: ${{ secrets.NGROK }}          
+          NGROK: ${{ secrets.NGROK }}
           KASM_PASSWORD: ${{ secrets.KASM_PASSWORD }}
         run: |
           docker run --name httpd --shm-size=2048m --restart=always -p 6901:6901 -e VNC_PW=$KASM_PASSWORD -d kasm_ngrok 
